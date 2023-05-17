@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "{{ cookiecutter.description }}"
 readme = "README.md"
 authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
-license = "{% if cookiecutter.open_source_license == 'MIT' %}MIT{% elif cookiecutter.open_source_license == 'BSD-3-Clause' %}BSD-3{% endif %}",
+license = "{% if cookiecutter.open_source_license == 'MIT' %}MIT{% elif cookiecutter.open_source_license == 'BSD-3-Clause' %}BSD-3{% endif %}"
 
 include = [
     { path = "docs", format = "sdist" },
