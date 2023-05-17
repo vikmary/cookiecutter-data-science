@@ -1,0 +1,50 @@
+image: python:3.8
+
+stages:
+    - build
+    - test
+
+before_script:
+    - pip install -U pip setuptools
+    - python --version ; pip --version  # For debugging
+    - python -m venv test_env
+    - source test_env/bin/activate
+
+cache:
+    paths:
+        - .cache/pip
+        - test_env/
+
+build-job:
+    stage: build
+    script:
+        - echo "Installing packages ..."
+        - python setup.py install
+
+buildtest:
+    stage: test
+    script:
+        - echo "Starting tox flake test..."
+        - pip install tox
+        - tox -e py38,py39,py310,py311
+
+lintest1:
+    stage: test
+    script:
+        - echo "Starting tox flake test..."
+        - pip install tox
+        - tox -e flake8
+
+lintest2:
+    stage: test
+    script:
+        - echo "Starting tox flake test..."
+        - pip install tox
+        - tox -e mypy
+
+# coveragetest:
+#     stage: test
+#     script:
+#         - echo "Starting tox flake test..."
+#         - pip install tox
+#         - tox -e coverage

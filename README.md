@@ -26,7 +26,7 @@ $ conda install cookiecutter
 ### To start a new project, run:
 ------------
 
-    cookiecutter -c v1 https://github.com/drivendata/cookiecutter-data-science
+    cookiecutter -c v1 https://github.com/vimary/cookiecutter-data-science
 
 
 [![asciicast](https://asciinema.org/a/244658.svg)](https://asciinema.org/a/244658)
@@ -105,4 +105,4 @@ We welcome contributions! [See the docs for guidelines](https://drivendata.githu
 ### Running the tests
 ------------
 
-    py.test tests
+    python -m pytest tests

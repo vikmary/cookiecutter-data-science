@@ -1,0 +1,8 @@
+flake8
+mypy
+coverage
+{% if cookiecutter.python_interpreter != 'python3' %}
+
+# backwards compatibility
+pathlib2
+{% endif %}

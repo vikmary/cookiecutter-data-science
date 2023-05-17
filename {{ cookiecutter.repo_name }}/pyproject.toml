@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "{{ cookiecutter.repo_name }}"
+version = "0.1.0"
+description = "{{ cookiecutter.description }}"
+readme = "README.md"
+authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
+license = "{% if cookiecutter.open_source_license == 'MIT' %}MIT{% elif cookiecutter.open_source_license == 'BSD-3-Clause' %}BSD-3{% endif %}",
+
+include = [
+    { path = "docs", format = "sdist" },
+    { path = "requirements.txt", format = "sdist" },
+    { path = "dev-requirements.txt", format = "sdist" },
+    { path = "setup.py", format = "sdist" },
+    { path = "MANIFEST.in", format = "sdist" }
+]
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+dotenv = "^0.0.5"
+
+[tool.poetry.dev-dependencies]
+mypy = "^0.950"
+flake8 = "^4.0.1"
+tox = "^4.5.1"
+
+[tool.mypy]
+ignore_missing_imports = true
